@@ -2,18 +2,57 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>博客</title>
-    <link href="/public/css/main.css" rel="stylesheet" type="text/css"/>
-    <link href="/public/fontAwesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    <script src="/public/js/index.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NBlog</title>
+    <link rel="SHORTCUT ICON" href="../../public/images/logo_cr.gif"/>
+    <link rel="stylesheet" href="/public/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/public/css/main.css"/>
 </head>
 
 <body>
-
-    <header>
-        <div class="backimg"><img src="/public/images/"></div>
+<div>
+    <header class="header-bar">
+        <img src="../../public/images/head_bk.png"/>
     </header>
+    <nav class="navbar navbar-default">
+        {% include './main.navbar.html' %}
+    </nav>
+</div>
+<div class="container container-fluid">
+    <div class="row">
+        <main class="col-md-8">
+            <!-- 文章列表 -->
+            <ul class="article-list">
+                <li class="article-item card">
+                    <h3>电商发展</h3>
+                    <div class="article-timebar">
+                        <span><b>分类:</b>Java</span>
+                        <span><b>作者:</b>admin</span>
+                        <span><b>发表时间:</b>2017-03-26 18:09</span>
+                        <span><b>浏览数:</b>100</span>
+                    </div>
+                    <div class="article-content">
+                        近年来，中国的电子商务快速发展，交易额连创新高，电子商务在各领域的应用不断拓展和深化、相关服务业蓬勃发展、支撑体系不断健全完善、创新的动力和能力 不断增强。电子商务正在与实体经济深度融合，进入规模性发展阶段，对经济社会生活的影响不断增大，正成为我国经济发展的新引擎。
+                        中国电子商务研究中心数据显示，截止到2012年底，中国电子商务市场交易规模达7.85万亿人民币，同比增长30.83%。其中，B2B电子商务交易额 达6.25万亿，同比增长27%。而2011年全年，中国电子商务市场交易额达6万亿人民币，同比增长33%，占GDP比重上升到13%；2012年，电 子商务占GDP的比重已经高达15%。预计2013年我国电子商务规模将突破十万亿大关。
+                    </div>
+                    <div>
+                        <a href="" class="article-seemore btn btn-primary">查看详情</a>
+                    </div>
+                </li>
+            </ul>
+        </main>
+        <aside class="col-md-4">
+            {% include './main.aside.html' %}
+        </aside>
+    </div>
+</div>
+<footer></footer>
 
+<script src="/public/js/jquery.min.js"></script>
+<script src="/public/bootstrap/js/bootstrap.min.js"></script>
+<script src="/public/js/vue.min.js"></script>
+<script src="/public/js/main.js"></script>
 </body>
 
 </html>
