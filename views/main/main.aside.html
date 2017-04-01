@@ -1,23 +1,21 @@
-<div class="card user-about" style="display: none;">
-
+{% if userInfo._id%}
+<div id="userInfo" class="card user-about" style="">
     <h4><span class="glyphicon glyphicon-user"></span>&nbsp;用户信息</h4>
-
     <hr class="style-one">
-    <img src="../../public/images/logo_cr.gif" alt="" class="center-block img-thumbnail">
-    <h5 style="text-align:center">ADMIN</h5>
-    <hr class="style-two">
-    <p>No Game,No Life!!!</p>
-    <hr class="style-two">
+    <img src="../../public/images/touxiang.jpg" alt="" class="center-block img-thumbnail">
+    <h5 style="text-align:center" id="user_name">{{userInfo.username}}</h5>
+    <br>
+    <p id="user_info" style="text-align: center;">No Game,No Life!!!</p>
+    <hr class="style-one">
     <div class="action-bar action-bar-margin">
         <button class="btn btn-primary" id="logout">退出登陆</button><br>
         <div class="userform-tabbar">
             您是管理员用户，可以<a href="/admin" id="">管理后台</a>。
         </div>
     </div>
-
 </div>
-
-<div class="card user-about">
+{% else %}
+<div class="card user-about" id="login_register">
 
     <form id="regsiter" class="regsiter-wrap" style="display:none">
         <h4><span class="	glyphicon glyphicon-send"></span>&nbsp;注册</h4>
@@ -31,6 +29,7 @@
         <div class="userform-tabbar">
             已有账号，去<a href="javascript:;" id="to-login">登陆</a>。
         </div>
+        <span class="msg" style="color: red;"></span>
     </form>
 
     <form id="login" class="login-wrap">
@@ -44,6 +43,19 @@
         <div class="userform-tabbar">
             没有账号，去<a href="javascript:;" id="to-register">注册</a>。
         </div>
+        <span class="msg" style="color: red;"></span>
     </form>
+
+</div>
+{% endif %}
+<br>
+<div class="card user-about">
+
+    <h4><span class="glyphicon glyphicon-share"></span>&nbsp;社区</h4>
+
+    <hr class="style-one">
+    <a href="http://www.csdn.net/" target="_blank">CSDN</a><br>
+    <a href="http://www.oschina.net/" target="_blank">开源中国</a><br>
+    <a href="https://github.com/LuckyNum" target="_blank">GitHub</a><br>
 
 </div>

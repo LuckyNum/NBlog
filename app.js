@@ -12,8 +12,37 @@ var express = require('express');
 var swig = require('swig');
 //加载mongoose模块
 var mongoose = require('mongoose');
+//加载body-parser,处理提交的数据
+var bodyParser = require('body-parser');
+//加载cookie模块
+var Cookies = require('cookies');
 //创建app应用 => NodeJS的Http.createServer();
 var app = express();
+
+/**
+ * 配置bodyParser
+ */
+app.use(bodyParser.urlencoded({extended: true}));
+/**
+ * 配置cookie
+ */
+app.use(function(req, res, next){
+    req.cookies = new Cookies(req, res);
+
+    //解析cookie信息
+    req.userInfo = {};
+    if(req.cookies.get('userInfo')){
+        try{
+            req.userInfo = JSON.parse(req.cookies.get('userInfo'));
+        }catch(e){
+
+        }
+    }
+
+    //console.log(typeof req.cookies.get('userInfo'));
+
+    next();
+});
 
 /**
  * 02.设置静态文件托管(用户访问的url以/public开始)
