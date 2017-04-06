@@ -4,11 +4,16 @@
 
 var mongoose = require('mongoose');
 
-//ÓÃ»§±í½á¹¹
+//ç”¨æˆ·è¡¨ç»“æ„
 module.exports = new mongoose.Schema({
 
-    //ÓÃ»§Ãû
+    //ç”¨æˆ·å
     username: String,
-    //ÃÜÂë
-    password: String
+    //å¯†ç 
+    password: String,
+    //æ˜¯å¦æ˜¯ç®¡ç†å‘˜
+    isAdmin: {
+        type: Boolean,
+        default: false
+    }
 });

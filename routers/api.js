@@ -67,16 +67,17 @@ router.post('/user/register', function(req, res, next){
         });
         return user.save();
     }).then(function(newUserInfo){
-        console.log(newUserInfo);
+        //console.log(newUserInfo);
         responseData.message = '注册成功，请登录';
         res.json(responseData);
+        next();
     });
 });
 
 /**
  * 用户登录
  */
-router.post('/user/login', function(req, res, next){
+router.post('/user/login', function(req, res){
     var username = req.body.username;
     var password = req.body.password;
 
@@ -99,6 +100,11 @@ router.post('/user/login', function(req, res, next){
             return;
         }
 
+        req.cookies.set('userInfo', JSON.stringify({
+            _id: userInfo._id,
+            username: userInfo.username
+        }));
+
         //用户名和密码正确
         responseData.message = '登录成功';
         responseData.userInfo = {
@@ -106,10 +112,6 @@ router.post('/user/login', function(req, res, next){
             username: userInfo.username
         };
 
-        req.cookies.set('userInfo', JSON.stringify({
-            _id: userInfo._id,
-            username: userInfo.username
-        }));
         res.json(responseData);
     });
 });
@@ -121,6 +123,7 @@ router.get('/user/logout', function(req, res, next){
     req.cookies.set('userInfo', null);
     responseData.message = '退出';
     res.json(responseData);
+    next();
 });
 
 module.exports = router;

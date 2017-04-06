@@ -5,13 +5,16 @@
     <img src="../../public/images/touxiang.jpg" alt="" class="center-block img-thumbnail">
     <h5 style="text-align:center" id="user_name">{{userInfo.username}}</h5>
     <br>
-    <p id="user_info" style="text-align: center;">No Game,No Life!!!</p>
+    {% if userInfo.isAdmin %}
+    <div class="userform-tabbar">
+        您是管理员用户，可以<a href="/admin" id="">管理后台</a>。
+    </div>
+    {% else %}
+    <p id="user_info" style="text-align: center;">您好，欢迎您登录我的博客！</p>
+    {% endif %}
     <hr class="style-one">
     <div class="action-bar action-bar-margin">
         <button class="btn btn-primary" id="logout">退出登陆</button><br>
-        <div class="userform-tabbar">
-            您是管理员用户，可以<a href="/admin" id="">管理后台</a>。
-        </div>
     </div>
 </div>
 {% else %}
